@@ -1,0 +1,171 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-width: 970px;
+}
+
+header{
+  background-color: #333333;
+  height: 80px;
+  width: 100%;
+  position: relative;
+}
+
+.logo p{
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 26px;
+  padding-top: 20px;
+}
+
+header ul{
+  float: right;
+  padding-top: 10px;
+}
+
+header ul li{
+  display: inline-block;
+  color: #ffffff;
+  list-style-type: none;
+}
+
+header ul li a{
+  color: inherit;
+}
+
+.banner{
+  background-color: #66bb33;
+  height: 300px;
+  width: 100%;
+}
+
+.shift ul{
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.shift ul li{
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+}
+
+.shift ul li a{
+  display: inline-block;
+  text-decoration: none;
+  height: 36px;
+  width: 30px;
+  background-color: #b2dd99;
+  border: 1px solid #335e1a;
+  color: #335e1a;
+  line-height: 36px;
+}
+
+.shift ul li a:hover{
+  cursor: pointer;
+  background-color: #ffffff;
+  height: 50px;
+  color: black;
+}
+
+nav{
+  box-sizing: border-box;
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+
+nav ul{
+  position: absolute;
+  bottom: 0;
+}
+
+nav ul li{
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+  box-sizing: border-box;
+  height: 50px;
+  width: 110px;
+  line-height: 50px;
+  border: 1px solid #dddddd;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #eeeeee;
+  color: black;
+}
+
+nav ul li:hover{
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid #ffffff;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+section .container{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: space-between;
+  align-content: space-between;
+}
+
+article{
+  box-sizing: boreder-box;
+  border: 1px solid #dddddd;
+  height: 176px;
+  text-align: center;
+  line-height: 176px;
+  margin: 10px;
+}
+
+.row1,.row2,.row3{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content1{
+  flex-basis: 328px;
+}
+
+.content2{
+  flex-grow: 1;
+}
+
+.content3{
+  flex-basis: 280px;
+}
+
+.row2 article{
+  flex: 1;
+}
+
+.row3 article{
+  flex: 1;
+}
+
+footer{
+  background-color: #666666;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+footer p{
+  color: #ffffff;
+}
+
+.container{
+  margin: 0 auto;
+  width: 970px;
+  height: inherit;
+  position: relative;
+}
