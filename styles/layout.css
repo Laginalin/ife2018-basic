@@ -68,7 +68,7 @@ header ul li a{
 .shift ul li a:hover{
   cursor: pointer;
   background-color: #ffffff;
-  height: 50px;
+  padding-top: 14px;
   color: black;
 }
 
