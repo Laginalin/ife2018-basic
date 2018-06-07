@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="styles/resume_style_3.css" rel="stylesheet" id="styleInfo">
+  <link href="styles/resume_common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <title>Personal Resume</title>
+</head>
+<body>
+  <header>
+    <h1>简历</h1>
+  </header>
+  <main>
+    <section id="basic-inform">
+      <h2>基本信息</h2>
+      <div class="container">
+      <table class="name">
+        <tr>
+          <th>姓名</td>
+          <td>张三</td>
+        </tr>
+      </table>
+      <table class="sex">
+        <tr>
+          <th>性别</th>
+          <td>男</td>
+        </tr>
+      </table>
+      <table class="intend-job">
+        <tr>
+          <th>应聘职位</th>
+          <td>Web前端工程师</td>
+        </tr>
+      </table>
+    </div>
+    </section>
+    <section id="contact-inform">
+      <h2>联系方式</h2>
+      <div class="container">
+      <table class="telephone">
+        <tr>
+          <th>手机</th>
+          <td>12312341234</td>
+        </tr>
+      </table>
+      <table class="e-mail">
+        <tr>
+          <th>Email</th>
+          <td><a href="mailto:joinefe@baidu.com">joinefe@baidu.com</a></td>
+        </tr>
+      </table>
+      <table class="github">
+        <tr>
+          <th>个人主页</th>
+          <td><a href="http://github.com">Github</a></td>
+        </tr>
+      </table>
+    </div>
+      <section id="skill-inform">
+        <h2>能力描述</h2>
+        <div class="container">
+        <table class="tech-skill">
+          <tr>
+            <th>技术能力</th>
+          </tr>
+          <tr>
+            <td>熟练掌握HTML,CSS,JavaScript</td>
+          </tr>
+        </table>
+        <table class="mixed-ability">
+          <tr>
+            <th>综合能力</th>
+          </tr>
+          <tr>
+            <td>良好的沟通，主动积极，努力勤奋</td>
+          </tr>
+        </table>
+      </container>
+      </section>
+      <section id="edu-inform">
+        <h2>教育经历</h2>
+        <div class="container">
+        <table class="undergraduate">
+          <tr>
+            <th>本科</th>
+          </tr>
+          <tr>
+            <td>百度前端技术学院小薇学院</td>
+          </tr>
+        </table>
+        <table class="master">
+          <tr>
+            <th>研究生</th>
+          </tr>
+          <tr>
+            <td>百度前端技术学院大斌学院</td>
+          </tr>
+        </table>
+      </div>
+      </section>
+      <section id="proj-inform">
+        <h2>项目经历</h2>
+        <div class="container">
+        <table class="xiaodu">
+          <tr>
+            <th>小度小度</th>
+          </tr>
+          <tr>
+            <td>作为前端工程师角色参与了ABC组件的开发</td>
+          </tr>
+        </table>
+        <table class="san-doc">
+          <tr>
+            <th>SAN Doc</th>
+          </tr>
+          <tr>
+            <td>作为文档工程师参与了SAN Doc编写</td>
+          </tr>
+        </table>
+      </div>
+      </section>
+    </main>
+    <aside>
+      <p>Change the style of the resume!</p>
+      <button id="style1" type="button" onclick="changeStyle1()">Style One</button>
+      <button id="style2" type="button" onclick="changeStyle2()">Style Two</button>
+      <button id="style3" type="button" autofocus="autofocus" onclick="changeStyle3()">Style Three</button>
+      <button id="learnMore" type="button" onclick="specialTime()">Learn More</button>
+    </aside>
+    <script src="scripts/resume.js">
+    </script>
+  </body>
+</html>

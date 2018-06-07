@@ -1,0 +1,35 @@
+aside{
+  position: fixed;
+  top: 40%;
+  right: 0;
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(40,55,55,0.2);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+aside button{
+  display: block;
+  width: 100px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid rgb(70,70,70,0.7);
+  border-radius: 4px;
+  color: rgba(70,70,70, 0.9);
+  font-family:'Montserrat',sans-serif;
+}
+
+aside p{
+  font-family:'Montserrat',sans-serif;
+  color: rgba(70,70,70, 0.7);
+}
+
+aside button:hover{
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.8);
+}

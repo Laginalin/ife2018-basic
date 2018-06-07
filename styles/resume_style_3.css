@@ -1,0 +1,42 @@
+body{
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+header{
+  background-color: #848484;
+  color: #ffffff;
+}
+
+h1{
+  color: inherit;
+  margin: 0;
+}
+
+h2{
+  margin: 0;
+  background-color: #D6D6D6;
+  border-bottom: 1px solid #ffffff;
+  height: 150px;
+  line-height: 150px;
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+
+.container{
+  height: 150px;
+  width: 80%;
+  float: right;
+  border-bottom: 1px solid #D6D6D6;
+}
+
+table{
+  margin: 10px;
+}
+
+.name,.sex,.intend-job,.telephone,.e-mail,.github{
+  display:inline-block;
+  margin-right: 10px;
+}

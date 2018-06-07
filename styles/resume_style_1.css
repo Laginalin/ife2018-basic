@@ -1,0 +1,10 @@
+body{
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.name,.sex,.intend-job,.telephone,.e-mail,.github{
+  display:inline-block;
+  margin-right: 10px;
+}
