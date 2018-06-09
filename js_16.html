@@ -3,40 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
+    <style>
+    body{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 800px;
+      margin: 0 auto;
+      font-family: YouYuan, "Microsoft YaHei" , sans-serif;
+    }
+    fieldset{
+      border: 1px solid #ddd;
+      width: 600px;
+    }
+    legend{
+      text-align: center;
+    }
+    fieldset p{
+      width: 600px;
+      overflow: auto;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar-track{
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #ddd;
+    }
+    fieldset button{
+      box-sizing: border-box;
+      font-family: YouYuan, "Microsoft YaHei" , sans-serif;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      height: 30px;
+      background: linear-gradient( 80deg, rgb(235,235,235) 0%, rgb(245,245,245) 100%);
+    }
+    tr,td{
+      text-align: left;
+      border: 1px solid #eee;
+    }
+    </style>
 </head>
 <body>
-    <input id="first-number" type="number" value="0" placeholder="第一个数字">
-    <input id="second-number" type="number" value="0" placeholder="第二个数字">
-    <button id="add-btn">加</button>
-    <button id="minus-btn">减</button>
-    <button id="times-btn">乘</button>
-    <button id="divide-btn">除</button>
-    <p id="result">运算结果</p>
+    <fieldset>
+      <legend>简单的四则运算</legend>
+      <div>
+        <input id="first-number" type="number" value="0" placeholder="第一个数字">
+        <input id="second-number" type="number" value="0" placeholder="第二个数字">
+        <button id="add-btn">加</button>
+        <button id="minus-btn">减</button>
+        <button id="times-btn">乘</button>
+        <button id="divide-btn">除</button>
+        <p id="result">运算结果</p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>十进制转化成二进制</legend>
+      <div>
+        <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+        <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+        <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
+        <p id="trans-result">运算结果</p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>3的小游戏</legend>
+      <div>
+        <p>从1到100，点击按钮输出各数字，当数字为3的倍数或者含有3的时候，会输出“PA”</p>
+        <button id="three-btn">输出</button>
+        <button id="clear-btn">撤销</button>
+        <p id="three-result">输出结果</p>
+      </div>
+    </fieldset>
     <script>
     document.getElementById("add-btn").onclick = function(){
       var firstNum = document.getElementById("first-number").value;
       var secondNum = document.getElementById("second-number").value;
-      result = parseInt(firstNum) + parseInt(secondNum);
+      var result = parseInt(firstNum) + parseInt(secondNum);
       document.getElementById("result").innerHTML = result;
     }
     document.getElementById("minus-btn").onclick = function(){
       var firstNum = document.getElementById("first-number").value;
       var secondNum = document.getElementById("second-number").value;
-      result = parseInt(firstNum) - parseInt(secondNum);
+      var result = parseInt(firstNum) - parseInt(secondNum);
       document.getElementById("result").innerHTML = result;
     }
     document.getElementById("times-btn").onclick = function(){
       var firstNum = document.getElementById("first-number").value;
       var secondNum = document.getElementById("second-number").value;
-      result = parseInt(firstNum) * parseInt(secondNum);
+      var result = parseInt(firstNum) * parseInt(secondNum);
       document.getElementById("result").innerHTML = result;
     }
     document.getElementById("divide-btn").onclick = function(){
       var firstNum = document.getElementById("first-number").value;
       var secondNum = document.getElementById("second-number").value;
-      result = parseInt(firstNum) / parseInt(secondNum);
-      document.getElementById("result").innerHTML = result;
+      if (parseInt(secondNum) !== 0){
+        var result = parseInt(firstNum) / parseInt(secondNum);
+        document.getElementById("result").innerHTML = result;
+      }
+      else{
+        alert('除数不能为零，请重新输入');
+      }
     }
+    function dec2bin(decNumber) {
+      decNumber = document.getElementById("dec-number").value;
+      binBit = document.getElementById("bin-bit").value;
+      if (!(/(^[1-9]\d*|0$)/.test(decNumber))) {
+　　　　　　alert("输入的不是非负整数,请重新输入");
+　　　　}else {
+　　　　　　var divideNum = decNumber, result = "";
+           do {
+             var i = divideNum / 2;
+             var a = divideNum % 2;
+             var aString = a.toString();
+             divideNum = parseInt(i);
+             result = aString + result;
+           } while (divideNum !== 0);
+           if(result.length > binBit){
+             document.getElementById("trans-result").innerHTML = result;
+             console.log('转化结果超过输入位数');
+           }
+           else{
+             for(var k = result.length + 1;k <= binBit;k++){
+               result ='0' + result;
+             }
+             document.getElementById("trans-result").innerHTML = result;
+           }
+　　　　}
+    }
+    document.getElementById("three-btn").onclick = function(){
+      var num = 0 , result = "";
+      for(i=1; i <= 100; i++){
+        num = num + 1 ;
+        if ( result === ""){
+          result = result + num.toString();
+        }
+        else{
+          if(num%3 === 0){
+            var standNum = "PA";
+            result = result + "," + standNum ;
+          }
+          else{
+          result = result + "," + num.toString() ;
+          }
+        }
+      }
+      document.getElementById("three-result").innerHTML = result;
+    }
+    document.getElementById("clear-btn").onclick = function(){
+      document.getElementById("three-result").innerHTML = "输出结果";
+    }
+    document.write("<fieldset>");
+    document.write("<legend>"+"九九乘法表"+"</legend>");
+    document.write("<table>");
+    for(i=1;i<=9;i++){
+      document.write("<tr>");
+      for(j=1;j<10;j++){
+        sum = i*j ;
+        document.write("<td>"+ j + "&times;" + i + "=" + sum + "</td>");
+        if(j === i){
+          break;
+        }
+      }
+      document.write("</tr>");
+    }
+    document.write("</table>");
+    document.write("</fiedlset>");
     </script>
 </body>
 </html>
