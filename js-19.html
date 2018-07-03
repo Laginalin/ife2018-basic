@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <p>请到javaScript控制台进行调试</p>
+    </div>
+    <script>
+
+    function getAllListItem() {
+      // 返回页面中所有li标签
+      var wrapper = document.getElementById('wrapper');
+      var listItems = wrapper.getElementsByTagName('li');
+      console.log('返回所有的li标签');
+      for(i = 0; i < listItems.length; i++){
+        console.log(listItems[i]);
+      }
+    }
+
+    function findAllHtmlSpanInOneSection(sectionID) {
+        // 返回某个section下所有span中内容为HTML的span标签
+        if (sectionID === 'news-top') {
+          console.log("返回第一部分下所有span中内容为HTML的span标签");
+        } else {
+          console.log("返回第一部分下所有span中内容为HTML的span标签");
+        }
+        var section = document.getElementById(sectionID);
+        var span = section.getElementsByTagName('span');
+        for(i = 0; i < span.length; i++){
+          spanText = span[i].innerHTML;
+          if (spanText === 'HTML') {
+            console.log(span[i]);
+          }
+        }
+    }
+
+    function findListItem(sectionId, spanCont) {
+        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        if (sectionId === 'news-top') {
+          console.log("返回第一部分下所有span中内容为" + spanCont + "的span标签");
+        } else {
+          console.log("返回第二部分下所有span中内容为" + spanCont + "的span标签");
+        }
+        var section = document.getElementById(sectionId);
+        var span = section.getElementsByTagName('span');
+        for(i = 0; i < span.length; i++) {
+          spanText = span[i].innerHTML;
+          if (spanText === spanCont) {
+            listItemFound = span[i].parentNode;
+            console.log(listItemFound);
+          }
+        }
+    }
+
+    function getActiveLinkContent(sectionId) {
+        // 返回某个section下，class为active的链接中包含的文字内容
+        if (sectionId === 'news-top') {
+          console.log("返回第一部分下，class为active的链接中包含的文字内容");
+        } else {
+          console.log("返回第二部分下，class为active的链接中包含的文字内容");
+        }
+        var section = document.getElementById(sectionId);
+        var link = section.getElementsByTagName('a');
+        for(i = 0; i < link.length; i++) {
+          linkClass = link[i].getAttribute('class');
+          if(linkClass === 'active') {
+            console.log(link[i].innerHTML);
+          }
+        }
+    }
+    </script>
+</body>
+</html>
