@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+       .nav ul li{
+         display: inline-block;
+         margin-right: 20px;
+         height: 40px;
+         width: 150px;
+         text-align: center;
+         line-height: 40px;
+         background-color: #aaa;
+         border-radius: 4px;
+       }
+       .nav a{
+         text-decoration: none;
+         color: white;
+       }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h3>Task 21</h3>
+        <div class="nav">
+            <ul>
+                <li><a href="js_21_01.html">元素的隐藏和显示</a></li>
+                <li><a href="js_21_02.html">颜色选择器</a></li>
+                <li>淡出和淡入效果</li>
+                <li><a href="js_21_04.html">Erik的笑容</a></li>
+            </ul>
+      </div>
+    </div>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var fadeObject = document.getElementById("fade-obj");
+        var fadeBtn = document.getElementById("fade-btn");
+        var opacityNum = 1;
+        var min = 0;
+        var max = 1;
+        var fadeOutFlag, fadeInFlag;
+        function fadeOut(min) {
+          if (opacityNum <= min) {
+            fadeBtn.disabled = false;
+            fadeBtn.innerHTML = "淡入";
+            clearInterval(fadeOutFlag);
+            return;
+          }
+          fadeObject.style.opacity = opacityNum - 0.025;
+          opacityNum = opacityNum - 0.025;
+        }
+        function fadeIn(max){
+          if(opacityNum >= max){
+            fadeBtn.disabled = false;
+            fadeBtn.innerHTML = "淡出";
+            clearInterval(fadeInFlag);
+            return;
+          }
+          fadeObject.style.opacity = opacityNum + 0.025;
+          opacityNum = opacityNum + 0.025;
+        }
+        fadeBtn.onclick = function(){
+          fadeBtn.disabled = true;
+          if (fadeBtn.innerHTML === "淡出"){
+            fadeOutFlag = setInterval(fadeOut, 50, min);
+          } else {
+            fadeInFlag = setInterval(fadeIn, 50, max);
+          }
+        }
+    </script>
+</body>
+</html>

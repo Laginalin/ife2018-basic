@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+        }
+        .nav ul li{
+          display: inline-block;
+          margin-right: 20px;
+          height: 40px;
+          width: 150px;
+          text-align: center;
+          line-height: 40px;
+          background-color: #aaa;
+          border-radius: 4px;
+        }
+        .nav a{
+          text-decoration: none;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h3>Task 21</h3>
+        <div class="nav">
+            <ul>
+                <li>元素的隐藏和显示</li>
+                <li><a href="js_21_02.html">颜色选择器</a></li>
+                <li><a href="js_21_03.html">淡出和淡入效果</a></li>
+                <li><a href="js_21_04.html">Erik的笑容</a></li>
+            </ul>
+        </div>
+    </div>
+    <label>
+        <input id="school" name="status" type="radio">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">
+        <option>百度</option>
+        <option>爱奇艺</option>
+    </select>
+    <script>
+        var radioSchool = document.getElementById("school");
+        var radioCompany = document.getElementById("company");
+        var selectSchool = document.getElementById("school-select");
+        var selectCompany = document.getElementById("company-select");
+        radioSchool.onclick = function(){
+          if (selectCompany.style.display === "list-item") {
+            selectCompany.style.display = "none";
+          }
+          selectSchool.style.display = "list-item";
+
+        }
+        radioCompany.onclick = function(){
+          if(selectSchool.style.display === "list-item") {
+            selectSchool.style.display = "none";
+          }
+          selectCompany.style.display = "list-item";
+        }
+    </script>
+</body>
+</html>
