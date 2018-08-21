@@ -8,4 +8,5 @@
 2018年百度前端技术学院零基础学院 第十九天：找到那个DOM--节点理解，控制台调试[demo](http://laginalin.github.io/ife2018-basic/js_19.html)<br />
 2018年百度前端技术学院零基础学院 第二十到二十一天：和页面对话[demo](http://laginalin.github.io/ife2018-basic/js_21.html)<br />
 2018年百度前端技术学院零基础学院 第二十二到二十四天： JavaScript里面的居民们[demo](http://laginalin.github.io/ife2018-basic/js_22.html)<br />
+2018年百度前端技术学院零基础学院 第二十五到二十七天： 一个计时器以及时间比较[demo](http://laginalin.github.io/ife2018-basic/js_25.html)<br />
 
