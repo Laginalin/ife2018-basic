@@ -10,4 +10,4 @@
 2018年百度前端技术学院零基础学院 第二十二到二十四天： JavaScript里面的居民们[demo](http://laginalin.github.io/ife2018-basic/js_22.html)<br />
 2018年百度前端技术学院零基础学院 第二十五到二十七天： 一个计时器以及时间比较[demo](http://laginalin.github.io/ife2018-basic/js_25.html)<br />
 2018年百度前端技术学院零基础学院 第二十八到第三十天： 一个自动提示的邮箱输入框[demo](http://laginalin.github.io/ife2018-basic/js_28.html)<br />
-
+2018年百度前端技术学院零基础学院 第三十一到四十一天： MIS系统[demo](http://laginalin.github.io/ife2018-basic/js_mis.html)<br />
