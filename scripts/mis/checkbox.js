@@ -3,6 +3,8 @@
 //document.write("<script language=javascript src='table.js'></script>");
 //document.write("<script language=javascript src='data.js'></script>");
 
+
+
 function getCheckBoxArr(arr) {
   //生成CheckBox选项的参数
   var myArray = new Array();
@@ -48,7 +50,7 @@ function createCheckBox(wrapper,arr,name) {
         itemSelected(target);
       }
     }
-    rendentTable(getSelectData("input",getNameArr("input")));
+    rendentTable(getSelectData("input",getNameArr("input")),sourceData);
   }
 }
 

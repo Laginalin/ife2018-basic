@@ -1,9 +1,9 @@
 //表格渲染
 
-function rendentTable(data) {
+function rendentTable(data1,data2) {
   //渲染表格
   //输出表头
-  if(data != undefined) {
+  if(data1 != undefined) {
     var test = getNameArr("input");
     var thead = new Array();
     thead.push("<thead>");
@@ -21,7 +21,7 @@ function rendentTable(data) {
     thead.push("</thead>");
     //遍历数据输出每一行内容：递归法进行排列组合
 
-    var trArr = deExchange(data);
+    var trArr = deExchange(data1,data2);
     var row = trArr.length;
     var tr = new Array();
     for (i = 0; i < row; i++) {
@@ -34,7 +34,7 @@ function rendentTable(data) {
 }
 
 //排列组合
-function deExchange(doubleArr) {
+function deExchange(doubleArr,dataSource) {
   var length = doubleArr.length;
   var len1 = doubleArr[0].length;
   var len2 = doubleArr[1].length;
@@ -43,14 +43,34 @@ function deExchange(doubleArr) {
   var index = 0;
   for(i = 0; i < len1; i++) {
     for(j = 0; j < len2; j++) {
+      var sale = new Array();
+      for(k = 0; k < dataSource.length; k++) {
+        if (doubleArr[0][i].id === "region") {
+          if(doubleArr[0][i].text === dataSource[k].region && doubleArr[1][j].text === dataSource[k].product) {
+            for(n = 0; n < 12; n++) {
+              var saleArr = dataSource[k].sale;
+              sale.push("<td>" + saleArr[n] + "</td>");
+            }
+            break;
+          }
+        } else {
+          if(doubleArr[0][i].text === dataSource[k].product && doubleArr[1][j].text === dataSource[k].region) {
+            for(n = 0; n < 12; n++) {
+              var saleArr = dataSource[k].sale;
+              sale.push("<td>" + saleArr[n] + "</td>");
+            }
+            break;
+          }
+        }
+      }
       if(len1 > 1 || len2 > 1) {
         if(j === 0) {
-          temp[index] = '<td rowspan = "' + len2 + '">' + doubleArr[0][i].text + '</td><td>' + doubleArr[1][j].text + '</td>';
+          temp[index] = '<td rowspan = "' + len2 + '">' + doubleArr[0][i].text + '</td><td>' + doubleArr[1][j].text + '</td>' + sale.join("");
         } else {
-          temp[index] = '<td>' + doubleArr[1][j].text + '</td>';
+          temp[index] = '<td>' + doubleArr[1][j].text + '</td>' + sale.join("");
         }
       } else {
-        temp[index] = "<td>" + doubleArr[0][i].text + "</td><td>"+ doubleArr[1][j].text+ "</td>";
+        temp[index] = "<td>" + doubleArr[0][i].text + "</td><td>"+ doubleArr[1][j].text+ "</td>" + sale.join("");
       }
       index = index + 1;
     }
