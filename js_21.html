@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
     <style>
-       .nav ul li{
+
+        select {
+            display: none;
+        }
+
+       .nav-header ul li{
          display: inline-block;
          margin-right: 20px;
          height: 40px;
@@ -13,24 +18,205 @@
          line-height: 40px;
          background-color: #aaa;
          border-radius: 4px;
+         color: #fff;
+         cursor: pointer;
        }
-       .nav a{
-         text-decoration: none;
-         color: white;
+
+       #smile{
+         width: 480px;
+         height: 480px;
+         margin: 0 auto;
+         background-image: url("images/task21/erik.jpg");
+         background-repeat: no-repeat;
+         background-position: 0 0px;
+       }
+
+       #palette {
+           margin: 0;
+           padding: 0;
+           list-style: none;
+       }
+       #palette li {
+           width: 40px;
+           height: 40px;
+           border: 1px solid #000;
+           cursor: pointer;
+       }
+
+       .nav-body>div {
+           display: none;
        }
     </style>
 </head>
 <body>
     <div id="wrapper">
         <h3>Task 21</h3>
-        <div class="nav">
+        <div class="nav-header">
             <ul>
-                <li><a href="js_21_01.html">元素的隐藏和显示</a></li>
-                <li><a href="js_21_02.html">颜色选择器</a></li>
-                <li><a href="js_21_03.html">淡出和淡入效果</a></li>
-                <li><a href="js_21_04.html">Erik的笑容</a></li>
+                <li>元素的隐藏和显示</li>
+                <li>颜色选择器</li>
+                <li>淡出和淡入效果</li>
+                <li>Erik的笑容</li>
             </ul>
         </div>
+        <div class ="nav-body">
+            <div>
+                <label>
+                    <input id="school" name="status" type="radio">
+                    School
+                </label>
+                <label>
+                    <input id="company" name="status" type="radio">
+                    Company
+                </label>
+
+                <select id="school-select">
+                    <option>北京邮电大学</option>
+                    <option>黑龙江大学</option>
+                    <option>华中科技大学</option>
+                </select>
+
+                <select id="company-select">
+                    <option>百度</option>
+                    <option>爱奇艺</option>
+                </select>
+            </div>
+            <div>
+                <ul id="palette">
+                    <li style="background-color:crimson"></li>
+                    <li style="background-color:bisque"></li>
+                    <li style="background-color:blueviolet"></li>
+                    <li style="background-color:coral"></li>
+                    <li style="background-color:chartreuse"></li>
+                    <li style="background-color:darkolivegreen"></li>
+                    <li style="background-color:cyan"></li>
+                    <li style="background-color:#194738"></li>
+                </ul>
+
+                <p class="color-picker"></p>
+            </div>
+            <div>
+                <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+                <button id="fade-btn">淡出</button>
+            </div>
+            <div>
+                <div id="smile"></div>
+            </div>
+        </div>
     </div>
+    <script src = "scripts/jquery-1.12.3.min.js"></script>
+    <script>
+    //面板切换
+
+    $(".nav-header li").click(function() {
+        $(this).css({
+            "backgroundColor": "#eee",
+            "color": "#000"
+        }).siblings().css({
+            "backgroundColor": "#aaa",
+            "color": "#fff"
+        }).parent().parent().next().children()
+        .eq($(this).index()).css("display","block")
+        .siblings().css("display","none");
+    })
+
+    //第一个任务元素选择js
+        var radioSchool = document.getElementById("school");
+        var radioCompany = document.getElementById("company");
+        var selectSchool = document.getElementById("school-select");
+        var selectCompany = document.getElementById("company-select");
+        radioSchool.onclick = function(){
+          if (selectCompany.style.display === "list-item") {
+            selectCompany.style.display = "none";
+          }
+          selectSchool.style.display = "list-item";
+
+        }
+        radioCompany.onclick = function(){
+          if(selectSchool.style.display === "list-item") {
+            selectSchool.style.display = "none";
+          }
+          selectCompany.style.display = "list-item";
+        }
+
+    //第二个任务颜色选择器js
+        var list = document.getElementById("palette").querySelectorAll("li");
+        for (var i = 0, len = list.length; i < len; i++) {
+            list[i].onclick = function(e) {
+                var t = e.target;
+                var c = t.style.backgroundColor;
+                var p = document.getElementsByClassName("color-picker")[0];
+                p.innerHTML = c;
+                p.style.color = c;
+
+            }
+        }
+
+    //第三个任务淡入淡出效果，使用js书写
+        var fadeObject = document.getElementById("fade-obj");
+        var fadeBtn = document.getElementById("fade-btn");
+        var opacityNum = 1;
+        var min = 0;
+        var max = 1;
+        var fadeOutFlag, fadeInFlag;
+        function fadeOut(min) {
+          if (opacityNum <= min) {
+            fadeBtn.disabled = false;
+            fadeBtn.innerHTML = "淡入";
+            clearInterval(fadeOutFlag);
+            return;
+          }
+          fadeObject.style.opacity = opacityNum - 0.025;
+          opacityNum = opacityNum - 0.025;
+        }
+        function fadeIn(max){
+          if(opacityNum >= max){
+            fadeBtn.disabled = false;
+            fadeBtn.innerHTML = "淡出";
+            clearInterval(fadeInFlag);
+            return;
+          }
+          fadeObject.style.opacity = opacityNum + 0.025;
+          opacityNum = opacityNum + 0.025;
+        }
+        fadeBtn.onclick = function(){
+          fadeBtn.disabled = true;
+          if (fadeBtn.innerHTML === "淡出"){
+            fadeOutFlag = setInterval(fadeOut, 50, min);
+          } else {
+            fadeInFlag = setInterval(fadeIn, 50, max);
+          }
+        }
+
+    //第四个任务动图的js书写
+        var erickSmile = document.getElementById("smile");
+        var flagOn,flagBack;
+        var x = 0; y = 0;
+        function run(){
+          if(y === 0) {
+            flagOn = setInterval(smileOn, 90);
+          } else if(y === -7680){
+             flagBack = setInterval(smileBack, 90);
+           }
+        }
+
+        function smileOn(){
+            erickSmile.style.backgroundPosition = x + " " + (y - 480) + "px";
+            y = y - 480;
+            if(y === -7680){
+              clearInterval(flagOn);
+              run();
+            }
+        }
+        function smileBack(){
+            erickSmile.style.backgroundPosition = x + " " + (y + 480) + "px";
+            y = y + 480;
+            if (y === 0){
+              clearInterval(flagBack);
+              run();
+            }
+        }
+        run();
+    </script>
 </body>
 </html>
